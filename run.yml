@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+    - import_tasks: tasks/local_facts.yml
+    - import_tasks: tasks/show_facts.yml

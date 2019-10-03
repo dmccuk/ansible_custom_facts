@@ -1,0 +1,5 @@
+[localfacts]
+role= webserver
+environment= production
+owner= systems
+appport= 9090

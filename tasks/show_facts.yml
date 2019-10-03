@@ -1,0 +1,7 @@
+---
+- name: print app port
+  debug: msg="your application port is {{ list_appport }}"
+- name: print environment
+  debug: msg="your environment is {{ list_environment }}"
+- name: print role
+  debug: msg="your role is {{ list_role }}"

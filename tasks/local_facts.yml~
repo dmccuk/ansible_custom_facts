@@ -1,0 +1,14 @@
+---
+- name: Use custom defined facts
+  hosts: localhost
+  tasks:
+  - name: Install web package using facts
+    yum:
+      name:
+        - "{{ ansible_local.local.localfacts.role }}"
+      state: latest
+    register: result
+
+  - name: Display the results on controller
+    debug:
+      var: result
