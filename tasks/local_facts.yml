@@ -16,3 +16,5 @@
   notify:
   - reload facts
 
+- name: reload facts
+  setup: filter=ansible_local

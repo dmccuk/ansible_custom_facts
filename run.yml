@@ -3,9 +3,5 @@
   connection: local
 
   tasks:
-
     - import_tasks: tasks/local_facts.yml
     - import_tasks: tasks/show_facts.yml
-
-  handlers:
-    - import_tasks: handlers/main.yml
