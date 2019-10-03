@@ -13,3 +13,6 @@
 
 - name: local facts
   debug: var=ansible_local
+  notify:
+  - reload facts
+
