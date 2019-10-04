@@ -1,5 +1,7 @@
 # ansible_local_facts
 
+Clone the code and run it to see a demo of local facts from a file in action.
+
 ````
 vagrant@ubuntu-xenial:~$ git clone https://github.com/dmccuk/ansible_local_facts.git
 Cloning into 'ansible_local_facts'...
