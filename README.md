@@ -123,8 +123,11 @@ if you create more playbooks in the tasks directory, make sure you add an "impor
 ## local_facts.yml
 This playbook creates our local facts file in the default ansible directory. It takes a local file called local.fact from the "files" directory and copies it to the default facts.d directory.
 
-The important section here is the <b>notify</b>. You <u><b>MUST</u></b> add the notify and reload the facts using the setup function if you want to use the facts in other playbooks in this ansible run. If you miss it out, the playbook won't see the facts on the first run. On the second run the facts will then be visible.
+The important section here is the <b>notify</b>. You <b><u>MUST</u></b> add the notify and reload the facts using the setup function if you want to use the facts in other playbooks in this ansible run. If you miss it out, the playbook won't see the facts on the first run. On the second run the facts will then be visible.
 
+<details>
+ <summary>local_facts.yml:</summary>
+  <p>
 ````
 ---
 - name: "Create custom fact directory"
@@ -147,5 +150,7 @@ The important section here is the <b>notify</b>. You <u><b>MUST</u></b> add the 
 - name: reload facts
   setup: filter=ansible_local
   ````
+<p><details>
+
 
 
