@@ -100,4 +100,52 @@ localhost                  : ok=9    changed=0    unreachable=0    failed=0    s
 </p></details>
 
 
+## Localhost
+I've run the playbook against my own VM for this demo but it will work against remote servers in the same way as the code is self contained.
+
+The setup of the playbook is similar to a role in that we import the tasks into a main playbook (run.yml). This is a fairly standard way to run a collection of playbooks as a group against a host.
+
+Check the syntax out:
+
+````
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - import_tasks: tasks/local_facts.yml
+    - import_tasks: tasks/show_facts.yml
+    - import_tasks: tasks/template_example.yml
+````
+
+if you create more playbooks in the tasks directory, make sure you add an "import_tasks" for them in the run.yml.
+
+## local_facts.yml
+This playbook creates our local facts file in the default ansible directory. It takes a local file called local.fact from the "files" directory and copies it to the default facts.d directory.
+
+The important section here is the <b>notify</b>. You <u><b>MUST</u></b> add the notify and reload the facts using the setup function if you want to use the facts in other playbooks in this ansible run. If you miss it out, the playbook won't see the facts on the first run. On the second run the facts will then be visible.
+
+````
+---
+- name: "Create custom fact directory"
+  file:
+    path: "/etc/ansible/facts.d"
+    state: "directory"
+    mode: 0766
+
+- name: "Insert custom fact file"
+  copy:
+    src: files/local.fact
+    dest: /etc/ansible/facts.d/local.fact
+    mode: 0644
+
+- name: local facts
+  debug: var=ansible_local
+  notify:
+  - reload facts
+
+- name: reload facts
+  setup: filter=ansible_local
+  ````
+
 
