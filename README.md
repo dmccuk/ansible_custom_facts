@@ -1,6 +1,4 @@
-![Alt text](images/Ansible-logo.png?raw=true)
-
-# ansible_local_facts
+![Alt text](images/Ansible-logo.png =175x118) # ansible local fact example
 
 ## Make sure you install the latest version of Ansible.
 In this example, I'll update the ansible version on ubuntu 16.04:
