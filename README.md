@@ -1,4 +1,3 @@
-![](images/Ansible-logo.png =175x118)
 ![Alt text](images/Ansible-logo.png?raw=true)
 
 # ansible local fact example
