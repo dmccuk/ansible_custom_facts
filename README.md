@@ -1,6 +1,7 @@
 ![Alt text](images/Ansible-logo1.png?raw=true)
 
 # ansible local fact example
+Local facts are great. A whole server build can be based on them and they can serve the purpose of an ENC (external node classifier) which can save you effor and time as you scale out you ansible implementation.
 
 ## Make sure you install or update to the latest version of Ansible.
 In this example, I'll update the ansible version on ubuntu 16.04:
@@ -120,6 +121,23 @@ Check the syntax out:
 
 if you create more playbooks in the tasks directory, make sure you add an "import_tasks" for them in the run.yml.
 
+## The fact file
+This is the file containing the local facts. Make a note of how the file is setup. Name encased on [] at the top. Key value pairs are listed below separated by sn "=".
+
+<details>
+ <summary>local_facts.yml:</summary>
+  <p>
+
+````
+[localfacts]
+role= webserver
+environment= production
+owner= systems
+appport= 9090
+````
+
+</p></details>
+
 ## local_facts.yml
 This playbook creates our local facts file in the default ansible directory. It takes a local file called local.fact from the "files" directory and copies it to the default facts.d directory.
 
@@ -152,7 +170,66 @@ The important section here is the <b>notify</b>. You <b>MUST</b> add the notify 
   setup: filter=ansible_local
 ````
 
-<p><details>
+</p></details>
 
+## Display the facts in a playbook run:
+In this playbook we display our local facts in the playbook. The link to the variables is established in out group/all variables file. You don;t need to use this file, and could just use the variable names, but it's always good practice to group variables together so you can update everything in one place.
 
+<details>
+ <summary>show_facts.yml:</summary>
+  <p>
 
+````
+---
+- name: print app port
+  debug: msg="your application port is {{ list_appport }}"
+- name: print environment
+  debug: msg="your environment is {{ list_environment }}"
+- name: print role
+  debug: msg="your role is {{ list_role }}"
+````
+
+</p></details>
+
+## Group variables
+See the group variables below.
+
+<details>
+ <summary>group/all:</summary>
+  <p>
+
+````
+---
+
+list_appport: "{{ ansible_local.local.localfacts.appport }}"
+list_environment:  "{{ ansible_local.local.localfacts.environment }}"
+list_role:  "{{ ansible_local.local.localfacts.role }}"
+````
+
+</p></details>
+
+The link breaks down to this:
+
+ansible_local = this is the default starting place for all local variables in ansible
+local = This is the filename holding the facts. The file name is local.fact
+localfacts = This is the headed of the local.fact file and is located at the top of the screen in square brackets [localfacts]
+appport = This is the variable name and will give the value of the Key --> value in the local.fact file
+
+## The template_example.yml
+This playbook creates a file containing the local variables we just created. This proves that the local variables can be used within templates.
+
+<details>
+ <summary>template_example.yml:</summary>
+  <p>
+
+````
+---
+
+- template:
+    src: ~/ansible_local_facts/templates/ansible_local_vars.j2
+    dest: /tmp/local_ansible_variables
+````
+
+</p></details>
+
+Feel free to Star my repo if you found it helpful.
