@@ -1,0 +1,5 @@
+---
+
+- template:
+    src: ~/ansible_local_facts/templates/ansible_local_vars.j2
+    dest: /tmp/local_ansible_variables

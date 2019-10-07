@@ -5,3 +5,4 @@
   tasks:
     - import_tasks: tasks/local_facts.yml
     - import_tasks: tasks/show_facts.yml
+    - import_tasks: tasks/template_example.yml
