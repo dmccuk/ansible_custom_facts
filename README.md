@@ -1,7 +1,7 @@
 ![Alt text](images/Ansible-logo1.png?raw=true)
 
 # ansible local fact example
-Local facts are great. A whole server build can be based on them and they can serve the purpose of an ENC (external node classifier) which can save you effor and time as you scale out you ansible implementation.
+Local facts are great. A whole server build can be based on them and they can serve the purpose of an ENC (external node classifier) which can save you effort and time as you scale out your ansible implementation.
 
 ## Make sure you install or update to the latest version of Ansible.
 In this example, I'll update the ansible version on ubuntu 16.04:
