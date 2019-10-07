@@ -128,6 +128,7 @@ The important section here is the <b>notify</b>. You <b>MUST</b> add the notify 
 <details>
  <summary>local_facts.yml:</summary>
   <p>
+
 ````
 ---
 - name: "Create custom fact directory"
@@ -150,6 +151,7 @@ The important section here is the <b>notify</b>. You <b>MUST</b> add the notify 
 - name: reload facts
   setup: filter=ansible_local
 ````
+
 <p><details>
 
 
