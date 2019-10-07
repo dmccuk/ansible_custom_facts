@@ -1,3 +1,5 @@
+![Alt text](images/Ansible-logo.png?raw=true)
+
 # ansible_local_facts
 
 ## Make sure you install the latest version of Ansible.
