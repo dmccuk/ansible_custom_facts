@@ -1,4 +1,4 @@
-![Alt text](images/Ansible-logo.png?raw=true)
+![Alt text](images/Ansible-logo1.png?raw=true)
 
 # ansible_local_facts
 
