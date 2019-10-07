@@ -33,7 +33,7 @@ Unpacking objects: 100% (28/28), done.
 Checking connectivity... done.
 ````
 
-## RUn the ansible playbook
+## Run the ansible playbook
 Now you have the code, you should be able to run it with no updates. Run it first, then we can break down each playbook to see what's happening.
 
 <details>
@@ -173,7 +173,7 @@ The important section here is the <b>notify</b>. You <b>MUST</b> add the notify 
 </p></details>
 
 ## Display the facts in a playbook run:
-In this playbook we display our local facts in the playbook. The link to the variables is established in out group/all variables file. You don;t need to use this file, and could just use the variable names, but it's always good practice to group variables together so you can update everything in one place.
+In this playbook we display our local facts in the playbook. The link to the variables is established in our group/all variables file. You don;t need to use this file, and could just use the variable names, but it's always good practice to group variables together so you can update everything in one place.
 
 <details>
  <summary>show_facts.yml:</summary>
