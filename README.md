@@ -206,8 +206,6 @@ list_environment:  "{{ ansible_local.local.localfacts.environment }}"
 list_role:  "{{ ansible_local.local.localfacts.role }}"
 ````
 
-</p></details>
-
 The link breaks down to this:
 
 ````
@@ -216,6 +214,9 @@ local = This is the filename holding the facts. The file name is local.fact
 localfacts = This is the headed of the local.fact file and is located at the top of the screen in square brackets [localfacts]
 appport = This is the variable name and will give the value of the Key --> value in the local.fact file
 ````
+
+</p></details>
+
 
 ## The template_example.yml
 This playbook creates a file containing the local variables we just created. This proves that local variables can be used within templates.
