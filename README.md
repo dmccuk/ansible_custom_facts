@@ -122,7 +122,7 @@ Check the syntax out:
 if you create more playbooks in the tasks directory, make sure you add an "import_tasks" for them in the run.yml.
 
 ## The fact file
-This is the file containing the local facts. Make a note of how the file is setup. Name encased on [] at the top. Key value pairs are listed below separated by sn "=".
+This is the file containing the local facts. Make a note of how the file is setup. Name encased on [] at the top. Key value pairs are listed below separated by an "=".
 
 <details>
  <summary>local_facts.yml:</summary>
