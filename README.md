@@ -234,4 +234,40 @@ This playbook creates a file containing the local variables we just created. Thi
 
 </p></details>
 
+## The template jinja2 file
+We can use the variables in our templates. This template shows how we get the values out of the local facts file and into a seperate file which could be a configuration file on a server.
+
+<details>
+ <summary>templates/ansible_local_vars.j2:</summary>
+  <p>
+
+````
+These are the ansible variables from the playbook:
+you can use them in a template like this:
+
+your application port is {{ list_appport }}
+your environment is {{ list_environment }}
+your role is {{ list_role }}
+````
+
+</p></details>
+
+## The local file output
+When we run ansible, the file will get created with our facts inside. This is the output of the file:
+
+<details>
+ <summary>/tmp/local_ansible_variables:</summary>
+  <p>
+
+````
+These are the ansible variables from the playbook:
+you can use them in a template like this:
+
+your application port is 9090
+your environment is production
+your role is webserver
+````
+
+</p></details>
+
 Feel free to Star my repo if you found it helpful.
