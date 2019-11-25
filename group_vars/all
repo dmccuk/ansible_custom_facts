@@ -1,5 +1,5 @@
 ---
 
-list_appport: "{{ ansible_local.local.localfacts.appport }}"
+list_appport: "{{ ansible_local.local.localfacts.appport | default('9999') }}"
 list_environment:  "{{ ansible_local.local.localfacts.environment }}"
 list_role:  "{{ ansible_local.local.localfacts.role }}"

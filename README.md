@@ -271,4 +271,19 @@ your role is webserver
 
 </p></details>
 
+## Presedence and Order
+You can test out which variable will be used by Ansible using this example:
+
+'#' out the appport line in files/local.fact
+
+Then run ansible again. The default value will be picked up in the absents of the local fact.
+
+Now run the same code using "--extra-vars" and change the port. Extra-vars is the king. It's top of the presedence rules.
+````
+$ sudo ansible-playbook -i localhost run.yml --extra-vars list_appport='1010'
+````
+
+The output will show the new port value.
+
+
 Feel free to Star my repo if you found it helpful.
