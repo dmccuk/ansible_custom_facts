@@ -1,0 +1,14 @@
+---
+- name: variable behaviour - original
+  debug: msg="match for original app-port"
+  when: list_appport == "9090"
+
+- name: variable behaviour - default
+  debug: msg="match for default app-port"
+  when: list_appport == "9999"
+
+- name: variable behaviour - SOmething else
+  debug: msg="match for SOMETHING ELSE app-port"
+  when:
+    - list_appport != "9999"
+    - list_appport != "9090"
