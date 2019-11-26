@@ -1,14 +1,14 @@
 ---
 - name: variable behaviour - original
-  debug: msg="match for original app-port"
+  import_tasks: tasks/original.yml
   when: list_appport == "9090"
 
 - name: variable behaviour - default
-  debug: msg="match for default app-port"
+  import_tasks: tasks/default.yml
   when: list_appport == "9999"
 
 - name: variable behaviour - SOmething else
-  debug: msg="match for SOMETHING ELSE app-port"
+  import_tasks: tasks/else.yml
   when:
     - list_appport != "9999"
     - list_appport != "9090"
