@@ -1,7 +1,11 @@
 ![Alt text](images/Ansible-logo1.png?raw=true)
 
 # ansible local fact example
-Local facts are great. A whole server build can be based on them and they can serve the purpose of an ENC (external node classifier) which can save you effort and time as you scale out your ansible implementation.
+Scaling any config management tool can be a daunting task. What starts as some code to fix or do one task, quickly escalates to many tasks on many servers. Only now you have conditional situations adding further complexity to your code base.
+
+This is where local facts come in. Local facts are great. Multiple server builds can be based on them and they can serve the purpose of an ENC (external node classifier) which can save you effort and time as you scale out your ansible implementation.
+
+This demo gives an overview of how they can give you back control as you scale your code.
 
 ## Make sure you install or update to the latest version of Ansible.
 In this example, I'll update the ansible version on ubuntu 16.04:
