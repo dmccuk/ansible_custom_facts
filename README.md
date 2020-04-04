@@ -205,12 +205,12 @@ See the group variables below.
 ````
 ---
 
-list_appport: "{{ ansible_local.local.localfacts.appport }}"
+list_appport: "{{ ansible_local.local.localfacts.appport | default('9999') }}"
 list_environment:  "{{ ansible_local.local.localfacts.environment }}"
 list_role:  "{{ ansible_local.local.localfacts.role }}"
 ````
 
-The link breaks down to this:
+The link breaks down to this (ansible_local.local.localfacts.appport):
 
 ````
 ansible_local = This is the default starting place for all local variables in ansible
@@ -218,6 +218,7 @@ local = This is the filename holding the facts. The file name is local.fact
 localfacts = This is the headed of the local.fact file and is located at the top of the screen in square brackets [localfacts]
 appport = This is the variable name and will give the value of the Key --> value in the local.fact file
 ````
+The | default('9999') section lets us add a default if there is no local_fact for that particular variable.
 
 </p></details>
 
