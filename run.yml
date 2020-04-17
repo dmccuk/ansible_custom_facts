@@ -1,9 +1,11 @@
 ---
-- hosts: localhost
+- hosts: all
   connection: local
+  gather_facts: true
 
   tasks:
     - import_tasks: tasks/local_facts.yml
     - import_tasks: tasks/show_facts.yml
     - import_tasks: tasks/template_example.yml
     - import_tasks: tasks/conditional.yml
+    - import_tasks: tasks/setup.yml
