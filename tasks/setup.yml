@@ -1,9 +1,7 @@
 ---
-- setup:
-#    gather_subset:
-#      - 'all'
-#      - '!any'
-#      - facter
+
+- name: Add facts to a variable
+  setup:
   register: setupvar
 
 - name: create facts file DIR
@@ -11,8 +9,7 @@
     path: /tmp/facts
     state: directory
 
-- name: "Write Facts to Files"
+- name: Store facts indexed by hostname in /tmp/facts
   copy:
     content: '{{ setupvar }}'
     dest: /tmp/facts/{{ ansible_hostname }}.yaml
-  delegate_to: localhost

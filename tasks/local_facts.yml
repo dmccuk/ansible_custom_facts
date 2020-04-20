@@ -11,6 +11,16 @@
     dest: /etc/ansible/facts.d/local.fact
     mode: 0644
 
+- name: "Insert custom fact script"
+  copy:
+    src: files/ec2_info.sh
+    dest: /tmp/ec2_info.sh
+    mode: 0755
+
+- name: add Instance facts
+  shell: /tmp/ec2_info.sh
+  
+
 - name: local facts
   debug: var=ansible_local
   notify:
